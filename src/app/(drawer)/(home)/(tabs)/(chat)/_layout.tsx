@@ -9,14 +9,12 @@ export default function ChatLayout() {
         options={({ navigation }) => ({
           title: "Chats",
           headerTitleAlign: "center",
-          headerTransparent: true,
+          headerShadowVisible: false,
           headerLeft: () => (
             <Ionicons
               onPress={() => navigation.openDrawer()}
               name="menu-outline"
               size={28}
-              className="px-1"
-              color="gray"
             />
           ),
 

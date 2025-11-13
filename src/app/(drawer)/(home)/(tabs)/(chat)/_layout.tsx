@@ -14,7 +14,8 @@ export default function ChatLayout() {
             <Ionicons
               onPress={() => navigation.openDrawer()}
               name="menu-outline"
-              size={28}
+              size={24}
+              className="px-3"
             />
           ),
 

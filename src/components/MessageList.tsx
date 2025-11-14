@@ -15,6 +15,8 @@ export default function MessageList() {
         />
       )}
       contentInsetAdjustmentBehavior="automatic"
+      inverted
+      showsVerticalScrollIndicator={false}
     />
   );
 }

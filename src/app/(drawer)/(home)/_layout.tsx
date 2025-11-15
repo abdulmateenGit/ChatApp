@@ -11,6 +11,7 @@ export default function HomeLayout() {
           headerBackButtonDisplayMode: "minimal",
         }}
       />
+      <Stack.Screen name="new/chat" options={{ title: "New Chat" }} />
     </Stack>
   );
 }

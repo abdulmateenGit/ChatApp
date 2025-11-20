@@ -9,6 +9,10 @@ export default function SignUpScreen() {
 
   const [emailAddress, setEmailAddress] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+
   const [pendingVerification, setPendingVerification] = React.useState(false);
   const [code, setCode] = React.useState("");
 
@@ -23,6 +27,8 @@ export default function SignUpScreen() {
       await signUp.create({
         emailAddress,
         password,
+        firstName,
+        lastName,
       });
 
       // Send user an email with verification code
@@ -77,10 +83,7 @@ export default function SignUpScreen() {
           onChangeText={(code) => setCode(code)}
           className="ch-input"
         />
-        <TouchableOpacity
-          onPress={onVerifyPress}
-          className="ch-button"
-        >
+        <TouchableOpacity onPress={onVerifyPress} className="ch-button">
           <Text className="ch-button-text">Verify</Text>
         </TouchableOpacity>
       </View>
@@ -90,6 +93,20 @@ export default function SignUpScreen() {
   return (
     <View className="ch-container">
       <>
+        <TextInput
+          autoCapitalize="none"
+          value={firstName}
+          placeholder="Enter your first name"
+          onChangeText={(s) => setFirstName(s)}
+          className="ch-input"
+        />
+        <TextInput
+          autoCapitalize="none"
+          value={lastName}
+          placeholder="Enter your last name"
+          onChangeText={(s) => setLastName(s)}
+          className="ch-input"
+        />
         <TextInput
           autoCapitalize="none"
           value={emailAddress}

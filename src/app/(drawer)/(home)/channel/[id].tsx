@@ -14,7 +14,7 @@ export default function ChannelScreen() {
   if (!channel) {
     return (
       <View className="flex-1 items-center justify-center">
-        <Text>Channel not found</Text>{" "}
+        <Text>Channel not found</Text>
       </View>
     );
   }

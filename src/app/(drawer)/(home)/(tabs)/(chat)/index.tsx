@@ -8,6 +8,10 @@ export default function ChannelListScreen() {
   const supabase = useSupabase();
   const { user } = useUser();
 
+  //TODO : Pagination
+  //TODO : Pull down to reload
+  //TODO : Sort by recent first
+
   const {
     data: channels,
     error,
@@ -18,7 +22,7 @@ export default function ChannelListScreen() {
       const { data } = await supabase
         .from("channel_users")
         .select("*, channels(*,users(*))")
-        .eq("user_id", user.id)
+        .eq("user_id", user!.id)
         .throwOnError();
 
       const channels = data.map((m) => m.channels);

@@ -1,11 +1,10 @@
 import { Tables } from "./database.types";
 
-export type Channel = {
-  id: string;
-  name: string;
-  lastMessage?: Message;
-  avatar: string;
-};
+export type User = Tables<"users">;
+
+export type Channel = Tables<"channels">;
+
+export type ChannelWithUser = Channel & { users: User[] };
 
 export type Message = {
   id: string;
@@ -14,5 +13,3 @@ export type Message = {
   sender?: User;
   image?: string;
 };
-
-export type User = Tables<"users">;

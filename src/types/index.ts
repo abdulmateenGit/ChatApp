@@ -6,10 +6,4 @@ export type Channel = Tables<"channels">;
 
 export type ChannelWithUser = Channel & { users: User[] };
 
-export type Message = {
-  id: string;
-  createdAt: string;
-  content: string;
-  sender?: User;
-  image?: string;
-};
+export type Message = Tables<"messages">;

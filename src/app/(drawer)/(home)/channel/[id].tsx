@@ -58,8 +58,8 @@ export default function ChannelScreen() {
           title: channelName,
         }}
       />
-      <MessageList />
-      <MessageInput />
+      <MessageList channel={channel} />
+      <MessageInput channel={channel} />
     </>
   );
 }

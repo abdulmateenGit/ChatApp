@@ -9,13 +9,19 @@ export default function MessageList({ channel }: { channel: Channel }) {
   const supabase = useSupabase();
   const { user } = useUser();
 
-  const { data: messages, error, isLoading } = useQuery({
+  // TODO: PAGINATION
+  const {
+    data: messages,
+    error,
+    isLoading,
+  } = useQuery({
     queryKey: ["messages", channel.id],
     queryFn: async () => {
       const { data } = await supabase
         .from("messages")
         .select("*")
         .eq("channel_id", channel.id)
+        .order("created_at", { ascending: false })
         .throwOnError();
 
       return data;
@@ -30,7 +36,10 @@ export default function MessageList({ channel }: { channel: Channel }) {
       data={messages}
       contentContainerClassName="p-4"
       renderItem={({ item }) => (
-        <MessageListItem message={item} isOwnMessage={item.user_id === user?.id} />
+        <MessageListItem
+          message={item}
+          isOwnMessage={item.user_id === user?.id}
+        />
       )}
       contentInsetAdjustmentBehavior="automatic"
       inverted

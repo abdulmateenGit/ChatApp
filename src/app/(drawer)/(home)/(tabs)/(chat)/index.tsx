@@ -12,8 +12,7 @@ export default function ChannelListScreen() {
 
   //TODO : Pagination
   //TODO : Pull down to reload
-  //TODO : Sort by recent first
-
+ 
   const {
     data: channels,
     error,
